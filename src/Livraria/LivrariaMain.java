@@ -1,6 +1,9 @@
 package Livraria;
+
 import java.util.ArrayList;
 import java.util.Scanner;
+
+import javax.swing.JOptionPane;
 
 public class LivrariaMain {
 
@@ -9,9 +12,11 @@ public class LivrariaMain {
 		try (Scanner teclado = new Scanner(System.in)) {
 			int opcao = 10;
 			
+			String menu = "1 - Cadastrar novo livro\n2 - Listar Livros\n3 - Buscar livros por nome\n"
+					+ "4 - Buscar livros por categoria\n5 - Buscar livros por preço\n0 - Encerrar atividades";
+			
 			do {
-				menuPrincipal();
-				opcao = teclado.nextInt();
+				opcao = Integer.parseInt(JOptionPane.showInputDialog(menu));
 				
 				switch (opcao) {
 				case 0:
@@ -100,13 +105,5 @@ public class LivrariaMain {
 			} while (opcao != 0);
 		}
 	}
-	
-	static void menuPrincipal() {
-		System.out.println("\n1 - Cadastrar novo livro");
-		System.out.println("2 - Listar Livros");
-		System.out.println("3 - Buscar livros por nome");
-		System.out.println("4 - Buscar livros por categoria");
-		System.out.println("5 - Buscar livros por preço");
-		System.out.println("0 - Encerrar atividades");
-	}
+
 }
